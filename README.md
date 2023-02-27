@@ -6,7 +6,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Demo
-[Demo](https://pizzario-uat-demo.netlify.app/)
+[Live Demo](https://pizzario-uat-demo.netlify.app/)
+[Recording](https://www.loom.com/share/03974f4cc4e749bca9157502a26fcc53)
 
 # Architecture
 <img width="905" alt="Screenshot 2023-02-27 at 7 56 32 PM" src="https://user-images.githubusercontent.com/28822529/221590229-9a8403ed-1d73-4752-99ff-0dcee7a95177.png">
