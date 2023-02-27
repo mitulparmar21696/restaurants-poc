@@ -8,6 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Demo
 [Demo](https://pizzario-uat-demo.netlify.app/)
 
+# Architecture
+<img width="905" alt="Screenshot 2023-02-27 at 7 56 32 PM" src="https://user-images.githubusercontent.com/28822529/221590229-9a8403ed-1d73-4752-99ff-0dcee7a95177.png">
+
+
 # Node version
 v14.20.0
 ## Available Scripts
