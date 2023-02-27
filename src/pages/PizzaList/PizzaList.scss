@@ -1,0 +1,15 @@
+.pizzaContainer {
+    display: flex;
+    margin: 0px 24px;
+    overflow: hidden;
+
+    .ant-list-item {
+        justify-content: left;
+    }
+    .pizzaDetails {
+        display: 'flex';
+        flex-direction: 'column';
+        margin-left: 24px;
+        
+    }
+}
