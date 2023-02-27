@@ -20,6 +20,8 @@ const CheckoutScreen = () => {
         setName(values.firstName);
         setPriceOfDay(finalPrice);
         setVisibleCheckoutModal(true);
+      } else {
+        alert('Selected wrong coupon and user');
       }
     }
   };
