@@ -1,0 +1,27 @@
+name: test
+
+on:
+  push:
+    branches:
+    - development
+    - staging
+    - main
+  pull_request:
+jobs: # list of things to do
+  unit-testing:
+    name: test:unit
+    runs-on: ubuntu-latest # on which machine to run
+    steps: # list of steps
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Unit test
+        run: yarn run test:unit
