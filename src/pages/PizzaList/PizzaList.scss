@@ -3,6 +3,12 @@
     margin: 0px 24px;
     overflow: hidden;
 
+    .pizzaDescription {
+        color: gray;
+        font-size: 12px;
+        width: 200px;
+    }
+
     .ant-list-item {
         justify-content: space-around;
     }
