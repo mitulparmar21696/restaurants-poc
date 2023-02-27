@@ -1,0 +1,16 @@
+.LayoutContainer {
+
+    .ant-layout-header {
+        color: white;
+        // background: transparent;
+        display: flex;
+        padding: 0 34px;
+        .logo {
+            flex: 1;
+        }
+        svg {
+            color: white;
+        }
+    }
+
+}

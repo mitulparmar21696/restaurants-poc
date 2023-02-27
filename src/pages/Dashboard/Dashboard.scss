@@ -1,0 +1,14 @@
+.DashboardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .ant-btn-default {
+        width: 150px;
+        height: 100px;
+    }
+    .ant-divider-vertical {
+        height: 100px;
+    }
+}

@@ -10,6 +10,10 @@ const Loadable = (Component: ElementType) => (props: React.ComponentProps<'div'>
     </Suspense>
   );
 };
+// Main Layout
+export const MainLayout = Loadable(lazy(() => import('components/Layout')));
 
 // Dashboard Pages
 export const Dashboard = Loadable(lazy(() => import('pages/Dashboard/Dashboard')));
+// Pizza list
+export const PizzaList = Loadable(lazy(() => import('pages/PizzaList/PizzaList')));
