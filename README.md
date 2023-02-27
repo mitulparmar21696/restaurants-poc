@@ -6,7 +6,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Demo
-[Demo](https://pizzaria-demo-dev.netlify.app/dashboard)
+[Demo](https://pizzario-uat-demo.netlify.app/)
 ## Available Scripts
 
 In the project directory, you can run:
