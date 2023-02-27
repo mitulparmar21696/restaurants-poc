@@ -4,7 +4,7 @@ import { Navigate, useRoutes } from 'react-router-dom';
 // components
 import GuestGuard from 'components/auth/GuestGuard';
 // pages
-import { Dashboard, MainLayout, PizzaList } from 'routes/elements';
+import { Dashboard, MainLayout, PizzaList, CheckoutList } from 'routes/elements';
 
 export const Router: React.FC = () => {
   return useRoutes([
@@ -30,6 +30,16 @@ export const Router: React.FC = () => {
             <GuestGuard>
               <MainLayout>
                 <PizzaList />
+              </MainLayout>
+            </GuestGuard>
+          )
+        },
+        {
+          path: 'checkout',
+          element: (
+            <GuestGuard>
+              <MainLayout>
+                <CheckoutList />
               </MainLayout>
             </GuestGuard>
           )

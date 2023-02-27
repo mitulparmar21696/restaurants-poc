@@ -17,3 +17,5 @@ export const MainLayout = Loadable(lazy(() => import('components/Layout')));
 export const Dashboard = Loadable(lazy(() => import('pages/Dashboard/Dashboard')));
 // Pizza list
 export const PizzaList = Loadable(lazy(() => import('pages/PizzaList/PizzaList')));
+// Checkout list
+export const CheckoutList = Loadable(lazy(() => import('pages/Checkout/Checkout')));
