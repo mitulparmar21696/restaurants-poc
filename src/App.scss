@@ -54,24 +54,6 @@
   display: flex;
 }
 
-.resendLink {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 21px;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.01em;
-  color: #21B6A8;
-  cursor: pointer;
-}
-
-.primaryButton {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 28px;
-  /* or 200% */
-  letter-spacing: 0.5px;
-}
 
 .error-message {
   color: #FF5630;
@@ -79,9 +61,27 @@
   text-align: center;
 }
 
-.MuiMenuItem-root {
-  color: #949494;
-  &:hover {
-    color: #3375F6;
+
+.QuantityButton {
+  display: flex;
+  flex-direction: row;
+  float: right;
+
+  .Button {
+    border: 1px solid gray;
+    padding: 2px 5px;
   }
+
+  .ButtonFilled {
+    border: 1px solid #001529;
+    padding: 2px 5px;
+    background: #001529;
+    color: white;
+  }
+}
+
+.ant-btn:focus,
+.ant-btn:hover {
+  color: #001529 !important;
+  border-color: #001529 !important;
 }

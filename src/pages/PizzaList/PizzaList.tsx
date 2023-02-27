@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './PizzaList.scss';
 import { List, Card } from 'antd';
+import { CartItemType } from 'types/cart';
+
 interface PizzaType {
   id: number;
   name: string;
@@ -8,8 +10,10 @@ interface PizzaType {
   price: number;
   url: string;
 }
+
 const PizzaList = () => {
   const [selectedPizza, setSelectedPizza] = useState<PizzaType>();
+  const [cartItems, setCartItems] = useState<CartItemType[]>([]);
 
   const pizzas = [
     {
@@ -35,9 +39,40 @@ const PizzaList = () => {
     }
   ];
 
+  const handleAddToCart = (item: PizzaType) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      setCartItems(
+        cartItems.map((cartItem) =>
+          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+  };
+
+  const handleRemoveFromCart = (item: PizzaType) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem && existingItem.quantity > 1) {
+      setCartItems(
+        cartItems.map((cartItem) =>
+          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+        )
+      );
+    } else {
+      setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
+    }
+  };
+
   const handleSelectPizza = (pizza: PizzaType) => {
     setSelectedPizza(pizza);
   };
+
+  const totalPrice = cartItems.reduce(
+    (total, cartItem) => total + cartItem.price * cartItem.quantity,
+    0
+  );
 
   return (
     <div className="pizzaContainer">
@@ -47,11 +82,35 @@ const PizzaList = () => {
           renderItem={(pizza: PizzaType) => (
             <List.Item>
               <div>
-                <img width={50} height={50} src={pizza.url} />
+                <img
+                  width={50}
+                  height={50}
+                  src={pizza.url}
+                  onClick={() => handleSelectPizza(pizza)}
+                />
               </div>
               <div className="pizzaDetails" onClick={() => handleSelectPizza(pizza)}>
                 <div>{pizza.name}</div>
                 <div>{pizza.description}</div>
+              </div>
+              <div className="QuantityButton">
+                <div
+                  className="ButtonFilled"
+                  onClick={() => {
+                    handleAddToCart(pizza);
+                  }}>
+                  +
+                </div>
+                {cartItems?.find((e) => e.id === pizza.id) && (
+                  <div className="Button">{cartItems.find((e) => e.id === pizza.id)?.quantity}</div>
+                )}
+                <div
+                  className="ButtonFilled"
+                  onClick={() => {
+                    handleRemoveFromCart(pizza);
+                  }}>
+                  -
+                </div>
               </div>
             </List.Item>
           )}
@@ -69,9 +128,31 @@ const PizzaList = () => {
                 <img src={selectedPizza.url} width={50} height={50} />
               </div>
             </div>
+            <div className="QuantityButton">
+              <div
+                className="ButtonFilled"
+                onClick={() => {
+                  handleAddToCart(selectedPizza);
+                }}>
+                +
+              </div>
+              {cartItems?.find((e) => e.id === selectedPizza.id) && (
+                <div className="Button">
+                  {cartItems.find((e) => e.id === selectedPizza.id)?.quantity}
+                </div>
+              )}
+              <div
+                className="ButtonFilled"
+                onClick={() => {
+                  handleRemoveFromCart(selectedPizza);
+                }}>
+                -
+              </div>
+            </div>
           </Card>
         )}
       </div>
+      {totalPrice}
     </div>
   );
 };

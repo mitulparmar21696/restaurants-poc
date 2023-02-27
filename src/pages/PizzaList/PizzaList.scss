@@ -4,12 +4,18 @@
     overflow: hidden;
 
     .ant-list-item {
-        justify-content: left;
+        justify-content: space-around;
     }
+
+    img {
+        cursor: pointer;
+    }
+
     .pizzaDetails {
         display: 'flex';
         flex-direction: 'column';
         margin-left: 24px;
-        
+        cursor: pointer;
+
     }
 }
