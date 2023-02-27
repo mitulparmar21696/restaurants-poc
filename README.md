@@ -7,6 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Demo
 [Demo](https://pizzario-uat-demo.netlify.app/)
+
+# Node version
+v14.20.0
 ## Available Scripts
 
 In the project directory, you can run:
