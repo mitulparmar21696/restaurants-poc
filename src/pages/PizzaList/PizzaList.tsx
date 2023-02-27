@@ -49,21 +49,24 @@ const PizzaList = () => {
   ];
 
   useEffect(() => {
-    const cart: string | null = localStorage.getItem('cart');
-    if (cart) {
-      const cartItems: CartItemType[] = JSON.parse(cart);
+    const localCart: string | null = localStorage.getItem('cart');
+    if (localCart) {
+      const cartItems: CartItemType[] = JSON.parse(localCart);
       setCartItems(cartItems);
+      dispatch(setCartDetails(cartItems));
     }
   }, []);
 
   useEffect(() => {
     let quantity = 0;
+
     cart.cartDetails.forEach((e: CartItemType) => {
       quantity = quantity + e.quantity;
     });
     setOrderCount(quantity);
-    getPrice();
-  }, [cart.cartDetails]);
+    const amount = getPrice();
+    setPrice(amount);
+  }, [cart.cartDetails, cartItems]);
 
   const handleAddToCart = (item: PizzaType) => {
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -109,7 +112,7 @@ const PizzaList = () => {
       (total, cartItem) => total + cartItem.price * cartItem.quantity,
       0
     );
-    setPrice(totalPrice);
+    return totalPrice;
   };
 
   return (
